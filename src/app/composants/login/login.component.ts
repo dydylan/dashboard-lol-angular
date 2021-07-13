@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {LoginServiceService} from '../../services/login-service.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginServiceService: LoginServiceService;
+
+  constructor(loginServiceService: LoginServiceService) {
+    this.loginServiceService = loginServiceService;
+  }
 
   ngOnInit(): void {
   }
 
+  getToken(){
+    this.loginServiceService.getJWT().subscribe(a=>{
+      console.log(a);
+      },error=> {
+      console.log(error);
+    });
+  }
 }
