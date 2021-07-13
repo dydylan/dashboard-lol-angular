@@ -1,5 +1,22 @@
 <section class="fight-section">
+
   <app-my-team></app-my-team>
-  <h2 class="fight-text">Lancer le combat !</h2>
+
+  <h2 class="fight-text" (click)="displayModal()">Lancer le combat !</h2>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal row" [style.display]="varDisplay">
+
+    <!-- Modal content -->
+    <div class="modal-content col justify-end items-center">
+<!--      <img class="results-img" src="assets/images/victory.png"/>-->
+      <img class="results-img" src="assets/images/defeat.png"/>
+      <button (click)="hideModal()" class="mt-5">Relancer un combat</button>
+    </div>
+
+  </div>
+
   <app-his-team></app-his-team>
+
+
 </section>
